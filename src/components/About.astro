@@ -1,0 +1,47 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, pick } from '../i18n/ui';
+import { profile } from '../data/profile';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="section" id="about">
+  <div class="wrap">
+    <SectionHeading index="01" title={t('section.about')} />
+    <div class="about">
+      <p class="about__lead reveal">{pick(profile.about[0], locale)}</p>
+      <div class="about__rest reveal">
+        {profile.about.slice(1).map((p) => <p>{pick(p, locale)}</p>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+    align-items: start;
+  }
+  .about__lead {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--step-2);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .about__rest {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 760px) {
+    .about { grid-template-columns: 1fr; }
+  }
+</style>

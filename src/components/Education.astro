@@ -1,0 +1,139 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, pick } from '../i18n/ui';
+import { credentials } from '../data/education';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const degrees = credentials.filter((c) => c.kind === 'degree');
+const mentoring = credentials.filter((c) => c.kind === 'mentoring');
+const certs = credentials.filter((c) => c.kind === 'certification');
+
+const groupLabel = {
+  degrees: { en: 'Academic', pt: 'Acadêmico' },
+  mentoring: { en: 'Mentoring', pt: 'Mentoria' },
+  certs: { en: 'Certifications', pt: 'Certificações' },
+} as const;
+---
+
+<section class="section" id="education">
+  <div class="wrap">
+    <SectionHeading index="04" title={t('section.education')} />
+
+    <div class="edu">
+      <div class="edu__col reveal">
+        <span class="eyebrow edu__label">{pick(groupLabel.degrees, locale)}</span>
+        {degrees.map((c) => (
+          <div class="cred">
+            <div class="cred__head">
+              <h3 class="cred__title">{pick(c.title, locale)}</h3>
+              <span class="cred__period">
+                {pick(c.period, locale)}
+                {c.inProgress && <em class="cred__progress">· {t('education.inProgress')}</em>}
+              </span>
+            </div>
+            <p class="cred__inst">{c.institution}</p>
+          </div>
+        ))}
+
+        <span class="eyebrow edu__label edu__label--gap">{pick(groupLabel.mentoring, locale)}</span>
+        {mentoring.map((c) => (
+          <div class="cred">
+            <div class="cred__head">
+              <h3 class="cred__title">{pick(c.title, locale)}</h3>
+              <span class="cred__period">{pick(c.period, locale)}</span>
+            </div>
+            <p class="cred__inst">{c.institution}</p>
+            {c.note && <p class="cred__note">{pick(c.note, locale)}</p>}
+          </div>
+        ))}
+      </div>
+
+      <aside class="edu__col edu__certs reveal">
+        <span class="eyebrow edu__label">{pick(groupLabel.certs, locale)}</span>
+        <ul class="certlist">
+          {certs.map((c) => (
+            <li class="certlist__item">
+              <span class="certlist__name">{pick(c.title, locale)}</span>
+              <span class="certlist__inst">{c.institution} · {pick(c.period, locale)}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+    align-items: start;
+  }
+  .edu__col { display: flex; flex-direction: column; }
+  .edu__label { display: block; margin-bottom: 1.2rem; }
+  .edu__label--gap { margin-top: 2.4rem; }
+
+  .cred { padding-bottom: 1.6rem; }
+  .cred + .cred {
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+  }
+  .cred__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cred__title { font-size: var(--step-1); }
+  .cred__period {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .cred__progress { color: var(--accent-ink); font-style: normal; }
+  .cred__inst {
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+  .cred__note {
+    color: var(--ink-soft);
+    margin-top: 0.6rem;
+    font-size: var(--step--1);
+    max-width: 60ch;
+  }
+
+  .edu__certs {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  }
+  .certlist { list-style: none; padding: 0; margin: 0; }
+  .certlist__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .certlist__item:last-child { border-bottom: none; padding-bottom: 0; }
+  .certlist__item:first-child { padding-top: 0; }
+  .certlist__name { font-weight: 600; }
+  .certlist__inst {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 760px) {
+    .edu { grid-template-columns: 1fr; }
+  }
+</style>

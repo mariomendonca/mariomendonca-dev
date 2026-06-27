@@ -1,0 +1,141 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, pick } from '../i18n/ui';
+import { projects } from '../data/projects';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <SectionHeading index="03" title={t('section.projects')} />
+
+    <div class="projects">
+      {projects.map((p) => (
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="card__index" aria-hidden="true">/{p.name.toLowerCase()}</span>
+            {p.featured && <span class="card__featured">{t('projects.featured')}</span>}
+          </div>
+
+          <h3 class="card__name">{p.name}</h3>
+          <p class="card__role">{pick(p.role, locale)} · <span>{pick(p.period, locale)}</span></p>
+          <p class="card__summary">{pick(p.summary, locale)}</p>
+          <p class="card__desc">{pick(p.description, locale)}</p>
+
+          <ul class="card__tech">
+            {p.tech.map((tch) => <li class="tag">{tch}</li>)}
+          </ul>
+
+          {(p.links?.repo || p.links?.live) && (
+            <div class="card__links">
+              {p.links?.live && (
+                <a href={p.links.live} target="_blank" rel="noopener" class="card__link">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  {t('projects.viewLive')}
+                </a>
+              )}
+              {p.links?.repo && (
+                <a href={p.links.repo} target="_blank" rel="noopener" class="card__link">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
+                  {t('projects.viewRepo')}
+                </a>
+              )}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1rem, 0.6rem + 1.5vw, 1.6rem);
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.4rem, 1rem + 1.5vw, 2.2rem);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--line-strong);
+  }
+  .card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+  }
+  .card__index {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+  }
+  .card__featured {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+  }
+  .card__name {
+    font-size: var(--step-2);
+    margin-bottom: 0.3rem;
+  }
+  .card__role {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .card__role span { color: var(--ink-faint); }
+  .card__summary {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+  .card__desc {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    line-height: 1.6;
+  }
+  .card__tech {
+    list-style: none;
+    padding: 0;
+    margin: 1.3rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .card__links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+  }
+  .card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .card__link:hover { color: var(--accent); }
+</style>

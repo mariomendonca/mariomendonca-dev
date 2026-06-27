@@ -1,0 +1,126 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, pick } from '../i18n/ui';
+import { profile } from '../data/profile';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer__cta reveal">
+      <p class="eyebrow">{t('hero.available')}</p>
+      <h2 class="footer__heading">{t('footer.heading')}</h2>
+      <p class="footer__sub">{t('footer.subheading')}</p>
+      <a class="btn footer__btn" href={`mailto:${profile.email}`}>
+        {t('footer.email')}
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer__bottom">
+      <ul class="footer__socials">
+        {profile.socials.map((s) => (
+          <li>
+            <a href={s.href} target={s.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener">
+              {s.label}
+              <span class="footer__handle">{s.handle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="footer__meta">
+        <span>© {year} {profile.name}. {t('footer.rights')}</span>
+        <span class="footer__built">{t('footer.builtWith')}</span>
+      </div>
+
+      <a class="footer__top" href="#top" aria-label={t('a11y.toTop')}>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-block: clamp(4rem, 3rem + 5vw, 7rem) 2.5rem;
+    background: var(--bg-tint);
+  }
+  .footer__cta {
+    text-align: center;
+    max-width: 40rem;
+    margin-inline: auto;
+    margin-bottom: clamp(3rem, 2rem + 4vw, 5rem);
+  }
+  .footer__cta .eyebrow { margin-bottom: 1rem; }
+  .footer__heading {
+    font-size: var(--step-4);
+    margin-bottom: 1rem;
+  }
+  .footer__sub {
+    color: var(--ink-soft);
+    font-size: var(--step-1);
+    margin-bottom: 2rem;
+  }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .footer__socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer__socials a {
+    display: inline-flex;
+    flex-direction: column;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  .footer__socials a:hover { color: var(--accent); }
+  .footer__handle {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--ink-faint);
+  }
+  .footer__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+  .footer__top {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+  .footer__top:hover { border-color: var(--accent); background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+  @media (max-width: 640px) {
+    .footer__bottom { flex-direction: column; align-items: flex-start; }
+    .footer__meta { text-align: left; }
+  }
+</style>

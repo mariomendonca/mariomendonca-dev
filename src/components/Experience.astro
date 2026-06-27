@@ -1,0 +1,164 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, pick } from '../i18n/ui';
+import { experiences } from '../data/experience';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <SectionHeading index="02" title={t('section.experience')} />
+
+    <ol class="timeline">
+      {experiences.map((exp) => (
+        <li class="entry reveal">
+          <div class="entry__marker" aria-hidden="true">
+            <span class={`entry__dot ${exp.current ? 'is-current' : ''}`}></span>
+          </div>
+          <div class="entry__body">
+            <div class="entry__head">
+              <h3 class="entry__company">
+                {exp.company}
+                {exp.current && <span class="entry__badge">{t('experience.current')}</span>}
+              </h3>
+              <span class="entry__period">{pick(exp.period, locale)}</span>
+            </div>
+            <p class="entry__role">{pick(exp.role, locale)} · <span>{pick(exp.location, locale)}</span></p>
+            <p class="entry__summary">{pick(exp.summary, locale)}</p>
+            <ul class="entry__bullets">
+              {pick(exp.bullets, locale).map((b) => <li>{b}</li>)}
+            </ul>
+            <ul class="entry__tech">
+              {exp.tech.map((tch) => <li class="tag">{tch}</li>)}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(1rem, 0.6rem + 2vw, 2.2rem);
+    padding-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  .entry:last-child { padding-bottom: 0; }
+
+  .entry__marker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.55rem;
+  }
+  .entry__marker::after {
+    content: '';
+    position: absolute;
+    top: 1.4rem;
+    bottom: -1rem;
+    width: 1px;
+    background: var(--line-strong);
+  }
+  .entry:last-child .entry__marker::after { display: none; }
+  .entry__dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 999px;
+    border: 2px solid var(--line-strong);
+    background: var(--bg);
+    z-index: 1;
+  }
+  .entry__dot.is-current {
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .entry__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .entry__company {
+    font-size: var(--step-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .entry__badge {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 0.22rem 0.55rem;
+    transform: translateY(-2px);
+  }
+  .entry__period {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .entry__role {
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+  .entry__role span { color: var(--ink-faint); font-weight: 400; }
+  .entry__summary {
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+    max-width: 62ch;
+  }
+  .entry__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 1.1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    max-width: 66ch;
+  }
+  .entry__bullets li {
+    position: relative;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .entry__bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 7px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+  .entry__tech {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  @media (max-width: 540px) {
+    .entry { grid-template-columns: 1fr; }
+    .entry__marker { display: none; }
+  }
+</style>

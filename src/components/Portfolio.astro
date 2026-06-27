@@ -1,0 +1,25 @@
+---
+import type { Locale } from '../i18n/ui';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Experience from './Experience.astro';
+import Projects from './Projects.astro';
+import Education from './Education.astro';
+import Skills from './Skills.astro';
+import Footer from './Footer.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+
+<Nav locale={locale} />
+<main>
+  <Hero locale={locale} />
+  <About locale={locale} />
+  <Experience locale={locale} />
+  <Projects locale={locale} />
+  <Education locale={locale} />
+  <Skills locale={locale} />
+</main>
+<Footer locale={locale} />
