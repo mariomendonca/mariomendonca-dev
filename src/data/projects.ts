@@ -8,6 +8,8 @@ export interface Project {
   description: I18nText;
   tech: string[];
   featured?: boolean;
+  /** Cover image(s) from /public — the first is shown as the card cover. */
+  images?: string[];
   links?: { repo?: string; live?: string };
 }
 
@@ -26,7 +28,7 @@ export const projects: Project[] = [
       pt: 'Um projeto pessoal criado no tempo livre para explorar e integrar tecnologias emergentes e ferramentas de IA. Construído com backend em Java e frontend em React, usando uma abordagem de "vibe coding" para experimentar fluxos de desenvolvimento modernos assistidos por IA.',
     },
     tech: ['Java', 'Spring Boot', 'React', 'TypeScript', 'AI Tooling'],
-    links: { repo: 'https://github.com/mariomendonca' },
+    links: { live: 'https://www.zunoesportes.com/' },
   },
   {
     name: 'FalaAgro',
@@ -42,5 +44,20 @@ export const projects: Project[] = [
       pt: 'Minha primeira experiência como cofundador de startup. Desenvolvi todo o app em React Native e o backend em Node.js / Express / TypeORM / PostgreSQL, do conceito à produção. Além da engenharia, a jornada por incubação (Garoa Habitat), aceleração InovAtiva e o programa Startups NE do SEBRAE construiu habilidades profundas de product ownership e empreendedorismo.',
     },
     tech: ['React Native', 'Node.js', 'Express', 'TypeORM', 'PostgreSQL'],
+  },
+  {
+    name: 'La Copa',
+    role: { en: 'Freelance · Design & Development', pt: 'Freelance · Design & Desenvolvimento' },
+    period: { en: 'Freelance', pt: 'Freelance' },
+    summary: {
+      en: 'A website for a footvolley tournament organizer — designed, built and sold as a freelance project.',
+      pt: 'Um site para uma organização de torneios de futevôlei — projetado, construído e vendido como projeto freelance.',
+    },
+    description: {
+      en: 'An institutional website for La Copa, which organizes footvolley (beach footvolley) tournaments. I designed and developed the site end-to-end and delivered it to the client.',
+      pt: 'Um site institucional para a La Copa, que organiza torneios de futevôlei. Projetei e desenvolvi o site de ponta a ponta e o entreguei ao cliente.',
+    },
+    tech: ['Web Design', 'Frontend'],
+    links: { live: 'https://lacopa.com.br/' },
   },
 ];

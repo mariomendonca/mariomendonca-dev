@@ -25,14 +25,16 @@ export const experiences: Experience[] = [
     },
     bullets: {
       en: [
-        'Lead a team of 5 engineers as Tech Lead of the Hotels vertical, one of Livelo\'s high-volume booking platforms — owning architecture decisions and long-term scalability.',
+        'As Tech Lead of Trip Management (post-sales), I own the architecture of the post-travel experience — purchase history, travel cancellation with and without penalty, and self-service flows that cut down paid support calls.',
+        'Previously led the Hotels vertical, one of Livelo\'s high-volume booking platforms, owning architecture decisions and long-term scalability.',
         'As a React Native developer, co-built the full car-rental flow in the Livelo app, driving a 50% increase in car-rental sales within months of launch.',
         'Helped build new backend architectures that enabled partner integrations, expanding the product catalog to flight tickets and car rentals.',
         'Led the frontend modernization of the Hotels booking experience using Micro Frontends (React), improving developer autonomy and delivery speed.',
         'Deepened backend expertise across Java, Spring Boot, Node.js, NestJS, microservices, Kubernetes, CI/CD, RabbitMQ, logging and monitoring.',
       ],
       pt: [
-        'Lidero um time de 5 engenheiros como Tech Lead da vertical de Hotéis, uma das plataformas de reservas de alto volume da Livelo — responsável por decisões de arquitetura e escalabilidade de longo prazo.',
+        'Como Tech Lead de “Gestão da Minha Viagem” (pós-venda), sou responsável pela arquitetura da experiência de pós-viagem — histórico de compras, cancelamento de viagem com e sem multa, e fluxos de autoatendimento que reduzem as ligações para o suporte (pago).',
+        'Anteriormente liderei a vertical de Hotéis, uma das plataformas de reservas de alto volume da Livelo, responsável por decisões de arquitetura e escalabilidade de longo prazo.',
         'Como desenvolvedor React Native, co-construí todo o fluxo de aluguel de carros no app da Livelo, gerando um aumento de 50% nas vendas de aluguel de carros poucos meses após o lançamento.',
         'Ajudei a construir novas arquiteturas de backend que habilitaram integrações com parceiros, expandindo o catálogo para passagens aéreas e aluguel de carros.',
         'Liderei a modernização do frontend da experiência de reservas de Hotéis usando Micro Frontends (React), melhorando a autonomia dos desenvolvedores e a velocidade de entrega.',

@@ -21,8 +21,7 @@ const links = [
 <header class="nav" id="site-nav">
   <div class="wrap nav__inner">
     <a class="nav__brand" href={home} aria-label="Mario Mendonça — home">
-      <span class="nav__mark">M</span>
-      <span class="nav__name">Mendonça</span>
+      <span class="nav__name">M<span class="nav__name-accent">M</span></span>
     </a>
 
     <nav class="nav__links" aria-label="Primary">
@@ -66,22 +65,12 @@ const links = [
   .nav__brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
   }
-  .nav__mark {
-    display: grid;
-    place-items: center;
-    width: 1.9rem;
-    height: 1.9rem;
-    border-radius: 8px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 1.05rem;
-  }
-  .nav__name { font-size: 1.05rem; }
+  .nav__name { font-size: 1.5rem; line-height: 1; }
+  .nav__name-accent { color: var(--accent); }
 
   .nav__links {
     display: flex;

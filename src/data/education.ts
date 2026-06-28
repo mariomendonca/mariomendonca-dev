@@ -17,7 +17,6 @@ export const credentials: Credential[] = [
     institution: 'FIAP',
     title: { en: 'Postgraduate — Software Architecture', pt: 'Pós-graduação — Arquitetura de Software' },
     period: { en: 'Mar 2025 — Mar 2026', pt: 'Mar 2025 — Mar 2026' },
-    inProgress: true,
   },
   {
     kind: 'degree',
