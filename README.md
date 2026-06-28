@@ -38,28 +38,35 @@ Every text field is `{ en: '…', pt: '…' }` — edit both languages in one pl
 **Assets** live in `public/`: `mario-profile.png`, `mario-mendonca-cv.pdf`,
 `favicon.svg`. Replace them in place to update.
 
-## Before deploying
-
-1. Set your real domain in **`astro.config.mjs`** (`SITE`) — used for canonical
-   URLs, OG tags, sitemap and `hreflang`.
-2. Update `server_name` / `root` in **`nginx.conf`** and the SSH vars in
-   **`deploy.sh`**.
-
 ## Deploy (VPS)
 
-The site is fully static, so nginx just serves `dist/`.
+Served as a static site by Caddy on the personal VPS (the same bind-mount pattern
+as `lacopa.com.br`), wired up in the **`personal-vps-infra`** repo:
+
+- `proxy/Caddyfile` — `mariomendonca.dev` block → `root * /opt/apps/portfolio` + `file_server`
+- `proxy/docker-compose.yml` — bind-mounts `/opt/apps/portfolio` into the Caddy container
+
+**One-time setup** (already done if the infra change is deployed):
 
 ```bash
-# one-time on the VPS: place nginx.conf, enable it, get a cert
-sudo cp nginx.conf /etc/nginx/sites-available/mariomendonca-portfolio
-sudo ln -s /etc/nginx/sites-available/mariomendonca-portfolio /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d mariomendonca.dev -d www.mariomendonca.dev
-
-# from your machine: build + push
-SSH_HOST=user@your-vps ./deploy.sh --dry-run   # preview
-SSH_HOST=user@your-vps ./deploy.sh             # ship
+# on the VPS
+mkdir -p /opt/apps/portfolio
+# in personal-vps-infra: add the Caddyfile block + compose volume, push, then
+# run the deploy-proxy.yml workflow (recreates Caddy + reloads the Caddyfile)
+# DNS: point mariomendonca.dev + www A records at the VPS IP
 ```
+
+**Every deploy** — build locally and rsync the static output:
+
+```bash
+cp .deploy.env.example .deploy.env   # first time only — set VPS_USER / VPS_HOST (gitignored)
+./deploy.sh                          # npm run build → rsync --delete dist/ to the VPS
+```
+
+> The real deploy target (VPS user/host) lives in `.deploy.env`, which is
+> gitignored — it is intentionally kept out of this public repo.
+
+Caddy serves the new files immediately (TLS is issued/renewed automatically).
 
 ## Adding a blog later
 

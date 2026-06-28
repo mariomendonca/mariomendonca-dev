@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// TODO: replace with your real domain before deploying (also used for OG + hreflang).
+// Used for canonical URLs, OG tags, sitemap and hreflang.
 const SITE = 'https://mariomendonca.dev';
 
 export default defineConfig({

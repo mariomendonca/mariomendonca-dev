@@ -1,29 +1,20 @@
-#!/usr/bin/env bash
-# Build the site and rsync it to the VPS.
-#
-# Usage:
-#   ./deploy.sh            # build + deploy
-#   ./deploy.sh --dry-run  # build + show what would transfer (no changes)
-#
-# Configure these (or export them in your shell / a .env you source):
-SSH_HOST="${SSH_HOST:-user@your-vps}"          # TODO: ssh target
-REMOTE_DIR="${REMOTE_DIR:-/var/www/mariomendonca-portfolio}"
-SSH_PORT="${SSH_PORT:-22}"
+#!/bin/bash
+set -e
 
-set -euo pipefail
+# Static deploy to the personal VPS (bind-mount served by Caddy; see
+# personal-vps-infra). Deploy target is kept OUT of this public repo — set it via
+# a gitignored ./.deploy.env (copy .deploy.env.example) or environment variables:
+#   VPS_USER, VPS_HOST, REMOTE_PATH
+[ -f .deploy.env ] && { set -a; . ./.deploy.env; set +a; }
 
-DRY=""
-if [[ "${1:-}" == "--dry-run" ]]; then
-  DRY="--dry-run"
-  echo "▶ DRY RUN — no files will be transferred"
-fi
+VPS_USER="${VPS_USER:?set VPS_USER (e.g. in .deploy.env — see .deploy.env.example)}"
+VPS_HOST="${VPS_HOST:?set VPS_HOST (e.g. in .deploy.env)}"
+REMOTE_PATH="${REMOTE_PATH:-/opt/apps/portfolio}"
 
-echo "▶ Building…"
+echo "→ Building..."
 npm run build
 
-echo "▶ Syncing dist/ → ${SSH_HOST}:${REMOTE_DIR}"
-rsync -avz --delete $DRY \
-  -e "ssh -p ${SSH_PORT}" \
-  dist/ "${SSH_HOST}:${REMOTE_DIR}/"
+echo "→ Syncing dist/ to the VPS..."
+rsync -avz --delete dist/ "$VPS_USER@$VPS_HOST:$REMOTE_PATH/"
 
-echo "✓ Done."
+echo "✓ Deploy complete — https://mariomendonca.dev"

@@ -7,6 +7,8 @@ node_modules/
 # environment
 .env
 .env.production
+# deploy target (real VPS user/host) — keep out of this public repo
+.deploy.env
 # macOS
 .DS_Store
 # logs
