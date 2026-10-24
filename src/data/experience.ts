@@ -20,8 +20,8 @@ export const experiences: Experience[] = [
     location: { en: 'Remote', pt: 'Remoto' },
     current: true,
     summary: {
-      en: 'Software Engineer at OneBeat, an AI-driven inventory optimization platform that helps retailers get the right products to the right stores at the right time.',
-      pt: 'Engenheiro de Software na OneBeat, uma plataforma de otimização de estoque baseada em IA que ajuda varejistas a levar os produtos certos para as lojas certas, no momento certo.',
+      en: 'Software Engineer at OneBeat, an inventory optimization platform that helps retailers get the right products to the right stores at the right time.',
+      pt: 'Engenheiro de Software na OneBeat, uma plataforma de otimização de estoque que ajuda varejistas a levar os produtos certos para as lojas certas, no momento certo.',
     },
     bullets: { en: [], pt: [] },
     tech: [],
