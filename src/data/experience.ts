@@ -14,18 +14,30 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: 'OneBeat',
+    role: { en: 'Software Engineer', pt: 'Engenheiro de Software' },
+    period: { en: 'Sep 2026 — Present', pt: 'Set 2026 — Atual' },
+    location: { en: 'Remote', pt: 'Remoto' },
+    current: true,
+    summary: {
+      en: 'Software Engineer at OneBeat, an AI-driven inventory optimization platform that helps retailers get the right products to the right stores at the right time.',
+      pt: 'Engenheiro de Software na OneBeat, uma plataforma de otimização de estoque baseada em IA que ajuda varejistas a levar os produtos certos para as lojas certas, no momento certo.',
+    },
+    bullets: { en: [], pt: [] },
+    tech: [],
+  },
+  {
     company: 'Livelo',
     role: { en: 'Tech Lead · Full Stack Software Engineer', pt: 'Tech Lead · Engenheiro de Software Full Stack' },
-    period: { en: 'Oct 2022 — Present', pt: 'Out 2022 — Atual' },
+    period: { en: 'Oct 2022 — Aug 2026', pt: 'Out 2022 — Ago 2026' },
     location: { en: 'Recife, Brazil', pt: 'Recife, Brasil' },
-    current: true,
     summary: {
       en: 'Joined as a Mobile Developer and was progressively promoted to Software Engineer and then Tech Lead, taking on growing responsibility across mobile, backend and frontend engineering.',
       pt: 'Entrei como Desenvolvedor Mobile e fui progressivamente promovido a Engenheiro de Software e, depois, a Tech Lead, assumindo responsabilidade crescente em mobile, backend e frontend.',
     },
     bullets: {
       en: [
-        'As Tech Lead of Trip Management (post-sales), I own the architecture of the post-travel experience — purchase history, travel cancellation with and without penalty, and self-service flows that cut down paid support calls.',
+        'As Tech Lead of Trip Management (post-sales), owned the architecture of the post-travel experience — purchase history, travel cancellation with and without penalty, and self-service flows that cut down paid support calls.',
         'Previously led the Hotels vertical, one of Livelo\'s high-volume booking platforms, owning architecture decisions and long-term scalability.',
         'As a React Native developer, co-built the full car-rental flow in the Livelo app, driving a 50% increase in car-rental sales within months of launch.',
         'Helped build new backend architectures that enabled partner integrations, expanding the product catalog to flight tickets and car rentals.',
@@ -33,7 +45,7 @@ export const experiences: Experience[] = [
         'Deepened backend expertise across Java, Spring Boot, Node.js, NestJS, microservices, Kubernetes, CI/CD, RabbitMQ, logging and monitoring.',
       ],
       pt: [
-        'Como Tech Lead de “Gestão da Minha Viagem” (pós-venda), sou responsável pela arquitetura da experiência de pós-viagem — histórico de compras, cancelamento de viagem com e sem multa, e fluxos de autoatendimento que reduzem as ligações para o suporte (pago).',
+        'Como Tech Lead de “Gestão da Minha Viagem” (pós-venda), fui responsável pela arquitetura da experiência de pós-viagem — histórico de compras, cancelamento de viagem com e sem multa, e fluxos de autoatendimento que reduzem as ligações para o suporte (pago).',
         'Anteriormente liderei a vertical de Hotéis, uma das plataformas de reservas de alto volume da Livelo, responsável por decisões de arquitetura e escalabilidade de longo prazo.',
         'Como desenvolvedor React Native, co-construí todo o fluxo de aluguel de carros no app da Livelo, gerando um aumento de 50% nas vendas de aluguel de carros poucos meses após o lançamento.',
         'Ajudei a construir novas arquiteturas de backend que habilitaram integrações com parceiros, expandindo o catálogo para passagens aéreas e aluguel de carros.',
