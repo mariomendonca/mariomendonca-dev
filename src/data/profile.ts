@@ -44,8 +44,8 @@ export const profile: Profile = {
       pt: 'Sou Engenheiro de Software Full Stack e Tech Lead com mais de 5 anos de experiência construindo aplicações web e mobile robustas e escaláveis. Atuo em toda a stack com Java, Spring Boot, Node.js, NestJS, React, React Native e TypeScript.',
     },
     {
-      en: "Today I'm a Tech Lead at Livelo, one of Brazil's largest loyalty programs (nearly 60M users), where I lead Trip Management — the post-sales travel experience covering purchase history, travel cancellations with and without penalty, and self-service flows that reduce paid support calls. I make architecture decisions, mentor engineers and foster a strong engineering culture, partnering with stakeholders to turn business goals into shipped software.",
-      pt: 'Hoje sou Tech Lead na Livelo, um dos maiores programas de fidelidade do Brasil (quase 60 milhões de usuários), onde lidero a experiência de pós-venda “Gestão da Minha Viagem” — histórico de compras, cancelamentos de viagem com e sem multa, e fluxos de autoatendimento que reduzem ligações para o suporte (pago). Tomo decisões de arquitetura, mentoro engenheiros e cultivo uma cultura de engenharia forte, trabalhando próximo aos stakeholders para transformar objetivos de negócio em software entregue.',
+      en: "Today I'm a Software Engineer at OneBeat, an inventory optimization platform for retailers. Before that, I spent nearly four years at Livelo, one of Brazil's largest loyalty programs (nearly 60M users), growing from Mobile Developer to Tech Lead — leading Trip Management, the post-sales travel experience, making architecture decisions, mentoring engineers and partnering with stakeholders to turn business goals into shipped software.",
+      pt: 'Hoje sou Engenheiro de Software na OneBeat, uma plataforma de otimização de estoque para o varejo. Antes disso, passei quase quatro anos na Livelo, um dos maiores programas de fidelidade do Brasil (quase 60 milhões de usuários), evoluindo de Desenvolvedor Mobile a Tech Lead — liderando a experiência de pós-venda “Gestão da Minha Viagem”, tomando decisões de arquitetura, mentorando engenheiros e trabalhando próximo aos stakeholders para transformar objetivos de negócio em software entregue.',
     },
     {
       en: 'Outside the day job I co-founded a startup, mentor university teams, and build side projects to explore emerging technologies and AI tooling.',
@@ -59,7 +59,7 @@ export const profile: Profile = {
   ],
   stats: [
     { value: '5+', label: { en: 'Years of experience', pt: 'Anos de experiência' } },
-    { value: '~60M', label: { en: 'Livelo users served', pt: 'Usuários da Livelo' } },
+    { value: '~60M', label: { en: 'Users served at Livelo', pt: 'Usuários atendidos na Livelo' } },
     { value: '50+', label: { en: 'Students mentored', pt: 'Estudantes mentorados' } },
   ],
 };

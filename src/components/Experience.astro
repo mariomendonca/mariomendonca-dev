@@ -29,12 +29,16 @@ const t = useTranslations(locale);
             </div>
             <p class="entry__role">{pick(exp.role, locale)} · <span>{pick(exp.location, locale)}</span></p>
             <p class="entry__summary">{pick(exp.summary, locale)}</p>
-            <ul class="entry__bullets">
-              {pick(exp.bullets, locale).map((b) => <li>{b}</li>)}
-            </ul>
-            <ul class="entry__tech">
-              {exp.tech.map((tch) => <li class="tag">{tch}</li>)}
-            </ul>
+            {pick(exp.bullets, locale).length > 0 && (
+              <ul class="entry__bullets">
+                {pick(exp.bullets, locale).map((b) => <li>{b}</li>)}
+              </ul>
+            )}
+            {exp.tech.length > 0 && (
+              <ul class="entry__tech">
+                {exp.tech.map((tch) => <li class="tag">{tch}</li>)}
+              </ul>
+            )}
           </div>
         </li>
       ))}
