@@ -31,6 +31,36 @@ export const projects: Project[] = [
     links: { live: 'https://www.zunoesportes.com/' },
   },
   {
+    name: 'Volta',
+    role: { en: 'Personal Project · Creator', pt: 'Projeto Pessoal · Criador' },
+    period: { en: 'Sep 2026 — Present', pt: 'Set 2026 — Atual' },
+    summary: {
+      en: 'A digital loyalty card for shops and service businesses — no app for the customer to download.',
+      pt: 'Um cartão fidelidade digital para lojas e serviços — sem aplicativo para o cliente baixar.',
+    },
+    description: {
+      en: 'A SaaS that replaces paper punch cards. Businesses add stamps in seconds using the customer\'s phone number, and customers track their rewards without installing anything. Includes a free trial flow so shops can start without a credit card.',
+      pt: 'Um SaaS que substitui o cartão fidelidade de papel. O estabelecimento adiciona selos em segundos pelo número de celular do cliente, que acompanha suas recompensas sem instalar nada. Inclui período de teste gratuito, sem cartão de crédito.',
+    },
+    tech: ['TypeScript', 'NestJS', 'React', 'PostgreSQL', 'Drizzle', 'Turborepo'],
+    links: { live: 'https://site.voltarecompensas.com/' },
+  },
+  {
+    name: 'Mind Eaters FC Dashboard',
+    role: { en: 'Personal Project · Creator', pt: 'Projeto Pessoal · Criador' },
+    period: { en: 'Oct 2026', pt: 'Out 2026' },
+    summary: {
+      en: 'A stats dashboard for my EA FC Pro Clubs team, Mind Eaters FC.',
+      pt: 'Um dashboard de estatísticas para meu time de Pro Clubs do EA FC, o Mind Eaters FC.',
+    },
+    description: {
+      en: 'Tracks the club\'s matches over time: player totals, Man of the Match awards, recent form and per-player rating trends, with match history saved after every session.',
+      pt: 'Acompanha as partidas do clube ao longo do tempo: totais por jogador, prêmios de Melhor em Campo, forma recente e evolução da nota de cada jogador, com o histórico salvo após cada sessão.',
+    },
+    tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Vite'],
+    links: { live: 'https://mindeatersfc.mariomendonca.dev/' },
+  },
+  {
     name: 'FalaAgro',
     role: { en: 'Co-Founder & Developer', pt: 'Cofundador & Desenvolvedor' },
     period: { en: 'Jun 2021 — Jan 2023', pt: 'Jun 2021 — Jan 2023' },
