@@ -25,8 +25,25 @@ const links = [
     <div class="nav__actions">
       <LangToggle locale={locale} />
       <ThemeToggle locale={locale} />
+      <button
+        class="nav__menu-btn"
+        id="nav-menu-btn"
+        type="button"
+        aria-label={t('a11y.menu')}
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
   </div>
+
+  <nav class="nav__menu" id="nav-menu" aria-label="Mobile" hidden>
+    <ul class="wrap">
+      {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+    </ul>
+  </nav>
 </header>
 
 <style>
@@ -39,23 +56,87 @@ const links = [
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
   }
-  .nav.is-scrolled { border-bottom-color: var(--rule); }
+  .nav.is-scrolled,
+  .nav.is-open { border-bottom-color: var(--rule); }
+  .nav.is-open { background: var(--bg); }
   .nav__inner { display: flex; align-items: center; gap: 2rem; height: 4rem; }
   .nav__brand { font-weight: 600; letter-spacing: -0.01em; text-decoration: none; margin-right: auto; }
   .nav__links { display: flex; gap: 1.5rem; font-size: var(--fs-sm); }
   .nav__links a { color: var(--ink-2); text-decoration: none; transition: color 0.15s ease; }
   .nav__links a:hover { color: var(--ink); }
   .nav__actions { display: flex; gap: 0.25rem; align-items: center; }
+
+  .nav__menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .nav__menu-btn:hover { background: var(--wash); color: var(--ink); }
+  .nav__menu-btn span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    margin-inline: auto;
+    background: currentColor;
+    transition: transform 0.2s ease;
+  }
+  .nav__menu-btn[aria-expanded='true'] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+  .nav__menu-btn[aria-expanded='true'] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+  .nav__menu ul { list-style: none; padding-block: 0.25rem 1rem; }
+  .nav__menu li + li { border-top: 1px solid var(--rule); }
+  .nav__menu a {
+    display: block;
+    padding-block: 0.85rem;
+    font-size: var(--fs-md);
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav__menu a:hover { color: var(--accent); }
+
   @media (max-width: 700px) {
     .nav__links { display: none; }
+    .nav__menu-btn { display: flex; }
+  }
+  @media (min-width: 701px) {
+    .nav__menu { display: none; }
   }
 </style>
 
 <script is:inline>
   (() => {
     const nav = document.getElementById('site-nav');
-    const onScroll = () => nav?.classList.toggle('is-scrolled', window.scrollY > 8);
+    const btn = document.getElementById('nav-menu-btn');
+    const menu = document.getElementById('nav-menu');
+    if (!nav || !btn || !menu) return;
+
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    const setOpen = (open) => {
+      menu.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('is-open', open);
+    };
+    btn.addEventListener('click', () => setOpen(menu.hidden));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    matchMedia('(min-width: 701px)').addEventListener('change', (e) => e.matches && setOpen(false));
   })();
 </script>
