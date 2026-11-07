@@ -6,7 +6,7 @@ import { projects } from '../data/projects';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-const featured = ['Zuno', 'Volta', 'Mind Eaters FC Dashboard'];
+const featured = ['Volta', 'Mind Eaters FC Dashboard', 'Zuno'];
 const shown = projects.filter((p) => featured.includes(p.name));
 const rest = projects.filter((p) => !featured.includes(p.name));
 const year = (s: string) => (s.match(/\d{4}/g) ?? []).slice(0, 1).join('');
@@ -22,7 +22,10 @@ const year = (s: string) => (s.match(/\d{4}/g) ?? []).slice(0, 1).join('');
             <img src={p.images![0]} alt="" width="1440" height="900" loading="lazy" decoding="async" />
           </a>
           <div class="item__head">
-            <h3><a href={p.links?.live} target="_blank" rel="noopener">{p.name}</a></h3>
+            <div class="item__title">
+              <h3><a href={p.links?.live} target="_blank" rel="noopener">{p.name}</a></h3>
+              {p.paused && <span class="item__paused">{t('im.paused')}</span>}
+            </div>
             <span>{year(pick(p.period, 'en')) || pick(p.period, locale)}</span>
           </div>
           <p class="item__summary">{pick(p.summary, locale)}</p>
@@ -84,7 +87,19 @@ const year = (s: string) => (s.match(/\d{4}/g) ?? []).slice(0, 1).join('');
   .item__head h3 { font-size: var(--fs-md); letter-spacing: -0.01em; }
   .item__head h3 a { text-decoration: none; }
   .item__head h3 a:hover { color: var(--accent); }
-  .item__head span { font-size: var(--fs-sm); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .item__head > span { font-size: var(--fs-sm); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .item__title { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .item__paused {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--ink-2);
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    white-space: nowrap;
+    margin-block: -0.3rem;
+  }
   .item__summary { margin-top: 0.35rem; }
   .item__desc { margin-top: 0.5rem; color: var(--ink-2); font-size: var(--fs-sm); max-width: 62ch; }
   .item__tech { margin-top: 0.6rem; color: var(--ink-3); font-size: var(--fs-sm); }

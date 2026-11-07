@@ -28,15 +28,3 @@ const target = otherLocale(locale);
   }
   .lang:hover { background: var(--wash); color: var(--ink); }
 </style>
-
-<script is:inline>
-  document.querySelectorAll('[data-lang-toggle]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const hash = window.location.hash;
-      if (hash) {
-        e.preventDefault();
-        window.location.href = el.getAttribute('href') + hash;
-      }
-    });
-  });
-</script>
