@@ -38,18 +38,24 @@ export const credentials: Credential[] = [
     kind: 'certification',
     institution: 'Anthropic',
     title: { en: 'Claude 101', pt: 'Claude 101' },
-    period: { en: '2025', pt: '2025' },
+    period: { en: '2026', pt: '2026' },
   },
   {
     kind: 'certification',
     institution: 'Anthropic',
     title: { en: 'Claude Code 101', pt: 'Claude Code 101' },
-    period: { en: '2025', pt: '2025' },
+    period: { en: '2026', pt: '2026' },
   },
   {
     kind: 'certification',
     institution: 'Anthropic',
     title: { en: 'Introduction to Subagents', pt: 'Introduction to Subagents' },
-    period: { en: '2025', pt: '2025' },
+    period: { en: '2026', pt: '2026' },
+  },
+  {
+    kind: 'certification',
+    institution: 'Anthropic',
+    title: { en: 'Introduction to Agent Skills', pt: 'Introduction to Agent Skills' },
+    period: { en: '2026', pt: '2026' },
   },
 ];
