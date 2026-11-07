@@ -2,161 +2,113 @@
 import type { Locale } from '../i18n/ui';
 import { useTranslations, pick } from '../i18n/ui';
 import { projects } from '../data/projects';
-import SectionHeading from './SectionHeading.astro';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const featured = ['Zuno', 'Volta', 'Mind Eaters FC Dashboard'];
+const shown = projects.filter((p) => featured.includes(p.name));
+const rest = projects.filter((p) => !featured.includes(p.name));
+const year = (s: string) => (s.match(/\d{4}/g) ?? []).slice(0, 1).join('');
 ---
 
-<section class="section" id="projects">
+<section class="section" id="work">
   <div class="wrap">
-    <SectionHeading index="03" title={t('section.projects')} />
-
-    <div class="projects">
-      {projects.map((p) => (
-        <article class="card reveal">
-          {p.images && p.images.length > 0 && (
-            <div class="card__cover">
-              <img src={p.images[0]} alt={`${p.name} — ${pick(p.summary, locale)}`} loading="lazy" />
-            </div>
-          )}
-          <div class="card__top">
-            <span class="card__index" aria-hidden="true">/{p.name.toLowerCase()}</span>
-            {p.featured && <span class="card__featured">{t('projects.featured')}</span>}
+    <h2 class="work__title">{t('im.work')}</h2>
+    <ul class="work">
+      {shown.map((p) => (
+        <li class="item">
+          <a class="item__shot" href={p.links?.live} target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src={p.images![0]} alt="" width="1440" height="900" loading="lazy" decoding="async" />
+          </a>
+          <div class="item__head">
+            <h3><a href={p.links?.live} target="_blank" rel="noopener">{p.name}</a></h3>
+            <span>{year(pick(p.period, 'en')) || pick(p.period, locale)}</span>
           </div>
-
-          <h3 class="card__name">{p.name}</h3>
-          <p class="card__role">{pick(p.role, locale)} · <span>{pick(p.period, locale)}</span></p>
-          <p class="card__summary">{pick(p.summary, locale)}</p>
-          <p class="card__desc">{pick(p.description, locale)}</p>
-
-          <ul class="card__tech">
-            {p.tech.map((tch) => <li class="tag">{tch}</li>)}
-          </ul>
-
-          {(p.links?.repo || p.links?.live) && (
-            <div class="card__links">
-              {p.links?.live && (
-                <a href={p.links.live} target="_blank" rel="noopener" class="card__link">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-                  {t('projects.viewLive')}
-                </a>
-              )}
-              {p.links?.repo && (
-                <a href={p.links.repo} target="_blank" rel="noopener" class="card__link">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg>
-                  {t('projects.viewRepo')}
-                </a>
-              )}
-            </div>
-          )}
-        </article>
+          <p class="item__summary">{pick(p.summary, locale)}</p>
+          <p class="item__desc">{pick(p.description, locale)}</p>
+          <p class="item__tech">{p.tech.join(', ')}</p>
+        </li>
       ))}
-    </div>
+    </ul>
+
+    {rest.length > 0 && (
+      <dl class="also">
+        {rest.map((p) => (
+          <div class="also__row">
+            <dt>
+              <span class="also__name">{p.name}</span>
+              <span class="also__when">{pick(p.period, locale)}</span>
+            </dt>
+            <dd>
+              <p class="item__summary">{pick(p.summary, locale)}</p>
+              <p class="item__desc">{pick(p.description, locale)}</p>
+              <p class="item__tech">{p.tech.join(', ')}</p>
+              {p.links?.live
+                ? <a class="link also__link" href={p.links.live} target="_blank" rel="noopener">{t('im.visit')}</a>
+                : <p class="item__tech">{t('im.offline')}</p>}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    )}
   </div>
 </section>
 
 <style>
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1rem, 0.6rem + 1.5vw, 1.6rem);
-  }
-  .card {
-    --card-pad: clamp(1.4rem, 1rem + 1.5vw, 2.2rem);
-    display: flex;
-    flex-direction: column;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: var(--card-pad);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  }
-  .card__cover {
-    margin: calc(-1 * var(--card-pad)) calc(-1 * var(--card-pad)) 1.5rem;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: var(--bg-tint);
-    border-bottom: 1px solid var(--line);
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
-  .card__cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .card:hover .card__cover img { transform: scale(1.04); }
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-    border-color: var(--line-strong);
-  }
-  .card__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.1rem;
-  }
-  .card__index {
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    color: var(--ink-faint);
-  }
-  .card__featured {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent-ink);
-    background: var(--accent-soft);
-    border-radius: 999px;
-    padding: 0.25rem 0.6rem;
-  }
-  .card__name {
-    font-size: var(--step-2);
-    margin-bottom: 0.3rem;
-  }
-  .card__role {
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    color: var(--ink-soft);
-    margin-bottom: 1rem;
-  }
-  .card__role span { color: var(--ink-faint); }
-  .card__summary {
-    font-weight: 600;
-    margin-bottom: 0.7rem;
-  }
-  .card__desc {
-    color: var(--ink-soft);
-    font-size: var(--step--1);
-    line-height: 1.6;
-  }
-  .card__tech {
+  .work__title { font-size: var(--fs-md); letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+  .work {
     list-style: none;
     padding: 0;
-    margin: 1.3rem 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2.5rem, 2rem + 2vw, 4rem) clamp(1.5rem, 1rem + 2vw, 3rem);
   }
-  .card__links {
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 1.4rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--line);
+  .item__shot {
+    display: block;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--wash);
+    outline: 1px solid var(--rule);
+    outline-offset: -1px;
+    margin-bottom: 1.1rem;
   }
-  .card__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    color: var(--ink-soft);
-    transition: color 0.2s ease;
+  .item__shot img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .card__link:hover { color: var(--accent); }
+  .item:hover .item__shot img { transform: scale(1.02); }
+  .item__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .item__head h3 { font-size: var(--fs-md); letter-spacing: -0.01em; }
+  .item__head h3 a { text-decoration: none; }
+  .item__head h3 a:hover { color: var(--accent); }
+  .item__head span { font-size: var(--fs-sm); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .item__summary { margin-top: 0.35rem; }
+  .item__desc { margin-top: 0.5rem; color: var(--ink-2); font-size: var(--fs-sm); max-width: 62ch; }
+  .item__tech { margin-top: 0.6rem; color: var(--ink-3); font-size: var(--fs-sm); }
+
+  .also { margin-top: clamp(3rem, 2.5rem + 2vw, 4.5rem); }
+  .also__row {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 2rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+  .also__row:last-child { border-bottom: 1px solid var(--rule); }
+  .also__row dt { display: grid; gap: 0.15rem; align-content: start; }
+  .also__name { font-weight: 600; letter-spacing: -0.01em; }
+  .also__when { font-size: var(--fs-sm); color: var(--ink-3); }
+  .also__row dd { margin: 0; max-width: 65ch; }
+  .also__row .item__summary { margin-top: 0; }
+  .also__link { display: inline-block; margin-top: 0.6rem; font-size: var(--fs-sm); }
+
+  @media (max-width: 960px) {
+    .work { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 620px) {
+    .work, .also__row { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
 </style>

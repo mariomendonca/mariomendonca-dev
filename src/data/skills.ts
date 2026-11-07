@@ -1,8 +1,8 @@
-import type { I18nText } from '../i18n/ui';
+import type { I18nText, I18nList } from '../i18n/ui';
 
 export interface SkillGroup {
   category: I18nText;
-  items: string[];
+  items: string[] | I18nList;
 }
 
 export const skillGroups: SkillGroup[] = [
@@ -28,6 +28,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: { en: 'Languages', pt: 'Idiomas' },
-    items: ['Portuguese — Native', 'English — C1'],
+    items: { en: ['Portuguese — Native', 'English — C1'], pt: ['Português — Nativo', 'Inglês — C1'] },
   },
 ];

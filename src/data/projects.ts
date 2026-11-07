@@ -28,6 +28,7 @@ export const projects: Project[] = [
       pt: 'Um projeto pessoal criado no tempo livre para explorar e integrar tecnologias emergentes e ferramentas de IA. Construído com backend em Java e frontend em React, usando uma abordagem de "vibe coding" para experimentar fluxos de desenvolvimento modernos assistidos por IA.',
     },
     tech: ['Java', 'Spring Boot', 'React', 'TypeScript', 'AI Tooling'],
+    images: ['/projects/zuno.webp'],
     links: { live: 'https://www.zunoesportes.com/' },
   },
   {
@@ -43,6 +44,7 @@ export const projects: Project[] = [
       pt: 'Um SaaS que substitui o cartão fidelidade de papel. O estabelecimento adiciona selos em segundos pelo número de celular do cliente, que acompanha suas recompensas sem instalar nada. Inclui período de teste gratuito, sem cartão de crédito.',
     },
     tech: ['TypeScript', 'NestJS', 'React', 'PostgreSQL', 'Drizzle', 'Turborepo'],
+    images: ['/projects/volta.webp'],
     links: { live: 'https://site.voltarecompensas.com/' },
   },
   {
@@ -58,6 +60,7 @@ export const projects: Project[] = [
       pt: 'Acompanha as partidas do clube ao longo do tempo: totais por jogador, prêmios de Melhor em Campo, forma recente e evolução da nota de cada jogador, com o histórico salvo após cada sessão.',
     },
     tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Vite'],
+    images: ['/projects/mindeaters.webp'],
     links: { live: 'https://mindeatersfc.mariomendonca.dev/' },
   },
   {
@@ -88,6 +91,7 @@ export const projects: Project[] = [
       pt: 'Um site institucional para a La Copa, que organiza torneios de futevôlei. Projetei e desenvolvi o site de ponta a ponta e o entreguei ao cliente.',
     },
     tech: ['Web Design', 'Frontend'],
+    images: ['/projects/lacopa.webp'],
     links: { live: 'https://lacopa.com.br/' },
   },
 ];

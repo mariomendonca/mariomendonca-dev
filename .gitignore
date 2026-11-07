@@ -13,3 +13,11 @@ node_modules/
 .DS_Store
 # logs
 npm-debug.log*
+
+# impeccable working files (mockups, screenshots, scratch)
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/tmp/
+.impeccable/prompts/
+.impeccable/decision-payload.json
+.impeccable/config.local.json
