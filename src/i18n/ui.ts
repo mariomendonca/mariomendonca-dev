@@ -54,6 +54,7 @@ export const ui = {
   'im.work.also': { en: 'Also', pt: 'Também' },
   'im.visit': { en: 'Visit site', pt: 'Ver site' },
   'im.offline': { en: 'No longer live', pt: 'Fora do ar' },
+  'im.paused': { en: 'On hold', pt: 'Em pausa' },
   'im.contact': { en: 'Get in touch', pt: 'Contato' },
   'im.contact.text': { en: 'Open to full-time engineering and tech lead roles, and to freelance projects.', pt: 'Aberto a vagas full-time de engenharia e tech lead, e a projetos freelance.' },
 } satisfies Record<string, I18nText>;

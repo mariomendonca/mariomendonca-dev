@@ -8,29 +8,14 @@ export interface Project {
   description: I18nText;
   tech: string[];
   featured?: boolean;
+  /** Not an active focus right now; shown with an "on hold" tag. */
+  paused?: boolean;
   /** Cover image(s) from /public — the first is shown as the card cover. */
   images?: string[];
   links?: { repo?: string; live?: string };
 }
 
 export const projects: Project[] = [
-  {
-    name: 'Zuno',
-    role: { en: 'Personal Project · Creator', pt: 'Projeto Pessoal · Criador' },
-    period: { en: 'Jan 2026 — Present', pt: 'Jan 2026 — Atual' },
-    featured: true,
-    summary: {
-      en: 'A platform that helps people discover local sports events in Recife, Brazil.',
-      pt: 'Uma plataforma que ajuda as pessoas a descobrir eventos esportivos locais em Recife, Brasil.',
-    },
-    description: {
-      en: 'A side project built in personal time to explore and integrate emerging technologies and AI tooling. Built with a Java backend and a React frontend, using a "vibe coding" approach to experiment with modern, AI-assisted development workflows.',
-      pt: 'Um projeto pessoal criado no tempo livre para explorar e integrar tecnologias emergentes e ferramentas de IA. Construído com backend em Java e frontend em React, usando uma abordagem de "vibe coding" para experimentar fluxos de desenvolvimento modernos assistidos por IA.',
-    },
-    tech: ['Java', 'Spring Boot', 'React', 'TypeScript', 'AI Tooling'],
-    images: ['/projects/zuno.webp'],
-    links: { live: 'https://www.zunoesportes.com/' },
-  },
   {
     name: 'Volta',
     role: { en: 'Personal Project · Creator', pt: 'Projeto Pessoal · Criador' },
@@ -62,6 +47,24 @@ export const projects: Project[] = [
     tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Vite'],
     images: ['/projects/mindeaters.webp'],
     links: { live: 'https://mindeatersfc.mariomendonca.dev/' },
+  },
+  {
+    name: 'Zuno',
+    role: { en: 'Personal Project · Creator', pt: 'Projeto Pessoal · Criador' },
+    paused: true,
+    period: { en: 'Jan 2026 — Present', pt: 'Jan 2026 — Atual' },
+    featured: true,
+    summary: {
+      en: 'A platform that helps people discover local sports events in Recife, Brazil.',
+      pt: 'Uma plataforma que ajuda as pessoas a descobrir eventos esportivos locais em Recife, Brasil.',
+    },
+    description: {
+      en: 'A side project built in personal time to explore and integrate emerging technologies and AI tooling. Built with a Java backend and a React frontend, using a "vibe coding" approach to experiment with modern, AI-assisted development workflows.',
+      pt: 'Um projeto pessoal criado no tempo livre para explorar e integrar tecnologias emergentes e ferramentas de IA. Construído com backend em Java e frontend em React, usando uma abordagem de "vibe coding" para experimentar fluxos de desenvolvimento modernos assistidos por IA.',
+    },
+    tech: ['Java', 'Spring Boot', 'React', 'TypeScript', 'AI Tooling'],
+    images: ['/projects/zuno.webp'],
+    links: { live: 'https://www.zunoesportes.com/' },
   },
   {
     name: 'FalaAgro',
