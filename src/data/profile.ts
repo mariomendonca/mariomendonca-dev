@@ -33,7 +33,7 @@ export const profile: Profile = {
   email: 'mariomendoncaneto@gmail.com',
   phone: '+55 81 98851-3328',
   cv: '/mario-mendonca-cv.pdf',
-  photo: '/mario-profile.png',
+  photo: '/mario-profile.webp',
   tagline: {
     en: 'I build robust, scalable web and mobile products — and lead the teams that ship them.',
     pt: 'Construo produtos web e mobile robustos e escaláveis — e lidero os times que os entregam.',

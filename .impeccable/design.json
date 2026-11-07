@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-07T04:28:35+00:00",
+  "title": "Design System: Mario Mendonça Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Paper Ground",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Fog Ink",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Wash",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Cobalt Link Blue",
+        "tonalRamp": [
+          "#0b1a42",
+          "#132b6b",
+          "#1a44ad",
+          "#2457d6",
+          "#4f7be3",
+          "#86a9ff",
+          "#b9cdff",
+          "#e6eeff"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Deep Cobalt",
+        "tonalRamp": [
+          "#0b1a42",
+          "#132b6b",
+          "#1a44ad",
+          "#2457d6",
+          "#4f7be3",
+          "#86a9ff",
+          "#b9cdff",
+          "#e6eeff"
+        ]
+      },
+      "on-primary": {
+        "role": "neutral",
+        "displayName": "On Cobalt",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Paper Ground (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Graphite Ink (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink-muted-dark": {
+        "role": "neutral",
+        "displayName": "Slate Ink (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "ink-faint-dark": {
+        "role": "neutral",
+        "displayName": "Fog Ink (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "wash-dark": {
+        "role": "neutral",
+        "displayName": "Wash (dark)",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Periwinkle",
+        "tonalRamp": [
+          "#0b1a42",
+          "#132b6b",
+          "#1a44ad",
+          "#2457d6",
+          "#4f7be3",
+          "#86a9ff",
+          "#b9cdff",
+          "#e6eeff"
+        ]
+      },
+      "primary-deep-dark": {
+        "role": "primary",
+        "displayName": "Periwinkle Hover",
+        "tonalRamp": [
+          "#0b1a42",
+          "#132b6b",
+          "#1a44ad",
+          "#2457d6",
+          "#4f7be3",
+          "#86a9ff",
+          "#b9cdff",
+          "#e6eeff"
+        ]
+      },
+      "on-primary-dark": {
+        "role": "neutral",
+        "displayName": "On Periwinkle",
+        "tonalRamp": [
+          "#0e1013",
+          "#171a1f",
+          "#23272e",
+          "#4b5260",
+          "#646b78",
+          "#a8afbb",
+          "#e5e7eb",
+          "#fcfcfb"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero; one per page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Hero pitch sentence; at weight 500 the contact email."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section labels, job titles, project names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text; lead paragraphs step up to 1.125rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Dates, locations, tech lists, nav and social links, footer; tabular numerals."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-control",
+        "value": "0.15s ease",
+        "purpose": "Colour, background and border transitions on buttons, links, toggles, nav links."
+      },
+      {
+        "name": "ease-nav-rule",
+        "value": "border-color 0.2s ease",
+        "purpose": "Nav hairline appearing after 8px of scroll."
+      },
+      {
+        "name": "ease-theme",
+        "value": "background-color 0.3s ease, color 0.3s ease",
+        "purpose": "Body cross-fade on theme switch."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Screenshot hover zoom (scale 1.02 over 0.5s)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.001ms",
+        "purpose": "All animation and transition durations collapse under prefers-reduced-motion; smooth scroll disabled."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "work-1col",
+        "value": "620px"
+      },
+      {
+        "name": "rows-stack",
+        "value": "560px"
+      },
+      {
+        "name": "nav-links-hide",
+        "value": "700px"
+      },
+      {
+        "name": "hero-stack",
+        "value": "760px"
+      },
+      {
+        "name": "label-column-stack",
+        "value": "820px"
+      },
+      {
+        "name": "work-2col",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action (Email me).",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Email me</a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; gap:0.5rem; min-height:2.75rem; padding:0 1.15rem; border-radius:8px; font:500 1rem/1 var(--font, 'Geist Variable', system-ui, sans-serif); text-decoration:none; border:1px solid transparent; transition:background-color 0.15s ease, border-color 0.15s ease; } .ds-btn-primary { background:var(--accent, #2457d6); color:var(--on-accent, #fff); } .ds-btn-primary:hover { background:var(--accent-hover, #1a44ad); } .ds-btn:focus-visible { outline:2px solid var(--accent, #2457d6); outline-offset:3px; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action with optional stroke icon (Download CV).",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11M7 10l5 5 5-5M5 20h14\"/></svg>Download CV</a>",
+      "css": ".ds-btn-quiet { display:inline-flex; align-items:center; gap:0.5rem; min-height:2.75rem; padding:0 1.15rem; border-radius:8px; font:500 1rem/1 var(--font, 'Geist Variable', system-ui, sans-serif); text-decoration:none; border:1px solid var(--rule, #e5e7eb); color:var(--ink, #111418); background:transparent; transition:background-color 0.15s ease, border-color 0.15s ease; } .ds-btn-quiet:hover { background:var(--wash, #f2f3f5); border-color:var(--ink-3, #646b78); } .ds-btn-quiet:focus-visible { outline:2px solid var(--accent, #2457d6); outline-offset:3px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Blue underlined link for socials, email, visit and CV.",
+      "html": "<a class=\"ds-link\" href=\"#\">GitHub</a>",
+      "css": ".ds-link { color:var(--accent, #2457d6); text-decoration:underline; text-decoration-color:color-mix(in srgb, var(--accent, #2457d6) 35%, transparent); text-decoration-thickness:1px; text-underline-offset:0.2em; transition:text-decoration-color 0.15s ease; } .ds-link:hover { text-decoration-color:var(--accent, #2457d6); } .ds-link:focus-visible { outline:2px solid var(--accent, #2457d6); outline-offset:3px; border-radius:4px; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-toggle",
+      "description": "Sticky translucent nav: brand, section links, language and theme toggles.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">Mario Mendonça</a><nav class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">Experience</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav><a class=\"ds-nav-toggle\" href=\"#\">PT</a><button class=\"ds-nav-toggle\" type=\"button\" aria-label=\"Toggle theme\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"/></svg></button></header>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:2rem; height:4rem; padding:0 1.5rem; background:color-mix(in srgb, var(--bg, #fcfcfb) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule, #e5e7eb); font-family:var(--font, 'Geist Variable', system-ui, sans-serif); color:var(--ink, #111418); } .ds-nav-brand { font-weight:600; letter-spacing:-0.01em; text-decoration:none; color:inherit; margin-right:auto; } .ds-nav-links { display:flex; gap:1.5rem; font-size:0.875rem; } .ds-nav-links a { color:var(--ink-2, #4b5260); text-decoration:none; transition:color 0.15s ease; } .ds-nav-links a:hover { color:var(--ink, #111418); } .ds-nav-toggle { display:inline-grid; place-items:center; min-width:2.5rem; height:2.5rem; padding-inline:0.5rem; border:0; border-radius:8px; background:none; font:500 0.875rem/1 inherit; color:var(--ink-2, #4b5260); text-decoration:none; cursor:pointer; transition:background-color 0.15s ease, color 0.15s ease; } .ds-nav-toggle:hover { background:var(--wash, #f2f3f5); color:var(--ink, #111418); } .ds-nav-toggle:focus-visible, .ds-nav-links a:focus-visible { outline:2px solid var(--accent, #2457d6); outline-offset:3px; border-radius:4px; }"
+    },
+    {
+      "name": "Project Tile",
+      "kind": "card",
+      "refersTo": "screenshot-frame",
+      "description": "Signature: clipped 16:10 screenshot over plain text; not a card container.",
+      "html": "<article class=\"ds-tile\"><a class=\"ds-tile-shot\" href=\"#\" aria-hidden=\"true\" tabindex=\"-1\"><span class=\"ds-tile-img\"></span></a><div class=\"ds-tile-head\"><h3><a href=\"#\">Zuno</a></h3><span>2025</span></div><p class=\"ds-tile-summary\">Matchmaking platform for sports partners.</p><p class=\"ds-tile-desc\">Built and shipped end to end, from API to mobile app.</p><p class=\"ds-tile-tech\">Java, Spring Boot, PostgreSQL, React Native</p></article>",
+      "css": ".ds-tile { max-width:22rem; font-family:var(--font, 'Geist Variable', system-ui, sans-serif); color:var(--ink, #111418); line-height:1.65; } .ds-tile-shot { display:block; aspect-ratio:16/10; border-radius:10px; overflow:hidden; background:var(--wash, #f2f3f5); outline:1px solid var(--rule, #e5e7eb); outline-offset:-1px; margin-bottom:1.1rem; } .ds-tile-img { display:block; width:100%; height:100%; background:linear-gradient(var(--wash, #f2f3f5), var(--rule, #e5e7eb)); transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tile:hover .ds-tile-img { transform:scale(1.02); } .ds-tile-head { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; } .ds-tile-head h3 { font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.35; margin:0; } .ds-tile-head h3 a { color:inherit; text-decoration:none; } .ds-tile-head h3 a:hover { color:var(--accent, #2457d6); } .ds-tile-head span { font-size:0.875rem; color:var(--ink-3, #646b78); font-variant-numeric:tabular-nums; } .ds-tile-summary { margin:0.35rem 0 0; } .ds-tile-desc { margin:0.5rem 0 0; font-size:0.875rem; color:var(--ink-2, #4b5260); } .ds-tile-tech { margin:0.6rem 0 0; font-size:0.875rem; color:var(--ink-3, #646b78); }"
+    },
+    {
+      "name": "Ruled Row",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Signature: 14rem label cell + content cell separated by hairlines (experience, skills, education, secondary projects).",
+      "html": "<dl class=\"ds-rows\"><div class=\"ds-row\"><dt>2023 — 2025</dt><dd><strong>Tech Lead · Livelo</strong><span>São Paulo, Brazil</span><p>Led Hotels and Trip Management; car-rental flow lifted sales 50%.</p></dd></div><div class=\"ds-row\"><dt>Backend</dt><dd>Java, Spring Boot, Node.js, PostgreSQL</dd></div></dl>",
+      "css": ".ds-rows { display:grid; margin:0; font-family:var(--font, 'Geist Variable', system-ui, sans-serif); line-height:1.65; } .ds-row { display:grid; grid-template-columns:14rem minmax(0, 1fr); gap:1.5rem; padding-block:0.85rem; border-top:1px solid var(--rule, #e5e7eb); } .ds-row:last-child { border-bottom:1px solid var(--rule, #e5e7eb); } .ds-row dt { font-size:0.875rem; color:var(--ink-3, #646b78); font-variant-numeric:tabular-nums; padding-top:0.1rem; } .ds-row dd { margin:0; color:var(--ink-2, #4b5260); max-width:62ch; } .ds-row strong { display:block; color:var(--ink, #111418); font-weight:500; } .ds-row span { font-size:0.875rem; color:var(--ink-3, #646b78); } .ds-row p { margin:0.4rem 0 0; font-size:0.875rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Plain Ledger",
+    "overview": "The page is a well-set record of work, not a pitch deck. A near-white ground, near-black ink and a single blue carry the whole interface; one grotesk (Geist) in two working weights does all hierarchy through size, weight and tracking. Real screenshots of shipped products are the only source of colour and the only imagery besides the portrait. Everything else is text, whitespace and hairlines.\n\nDensity is calm and editorial: generous section spacing, a fixed 14rem label column on the left of every content section, and rows separated by 1px rules rather than boxes. Dark mode is the same system inverted (dark ground, light ink, a lightened blue), never a different mood. Motion is small and functional: colour and border transitions at 0.15s, a slight screenshot zoom on hover, smooth anchor scrolling, all collapsed under reduced motion.\n\nThe world refuses template chrome: no eyebrows or kickers above headings, no section numbers, no stat boxes, no tinted cards around text, no scroll-reveal that hides content until it animates in.",
+    "keyCharacteristics": [
+      "One accent (blue) for links and the single primary action; screenshots carry all other colour.",
+      "One family, two weights (400 / 600, with 500 for controls and small emphasis).",
+      "Hairline rules separate rows; there are no containers around text.",
+      "A left label column (14rem) structures every content section on desktop and stacks on mobile.",
+      "Light and dark are the same system with swapped values."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Blue means \"you can act here\": links and the primary button. It never decorates headings, backgrounds, icons or dividers.",
+        "section": "colors"
+      },
+      {
+        "name": "The Screenshots Carry Colour Rule",
+        "body": "No other hue enters the interface. Product screenshots and the portrait are the only colour on the page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inverted Twin Rule",
+        "body": "Dark mode re-maps the same tokens (`*-dark`); it introduces no new colours, gradients or glows.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Weight Rule",
+        "body": "Headings use 600, text uses 400; 500 is reserved for buttons, toggles and the inline emphasis of a credential title. No light (300) or heavy (700+) weights.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Dates Rule",
+        "body": "Every date or period uses tabular numerals so dated columns align.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Ledger Rule",
+        "body": "No shadows, glows or lifted cards. Separation is a 1px rule or whitespace.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep blue for links and the single primary action (The One Blue Rule).",
+      "Do let real product screenshots be the only colour; frame them in a 16:10, 10px-cornered clip with a 1px inset hairline.",
+      "Do structure content sections with the 14rem label column and 1px ruled rows.",
+      "Do set every date and period in tabular numerals at Label size in Fog Ink.",
+      "Do cap prose at 62–65ch and keep the pitch at 30ch.",
+      "Do implement dark mode by swapping to the `*-dark` tokens only.",
+      "Do keep all content visible without JavaScript and honour reduced motion."
+    ],
+    "donts": [
+      "Don't add eyebrows, kickers or section numbers above headings.",
+      "Don't add stat boxes, metric tiles or tinted cards around text.",
+      "Don't use box-shadows or glows; separation is hairlines and whitespace.",
+      "Don't hide content behind scroll-reveal entrance animations.",
+      "Don't introduce a second typeface or a second accent hue.",
+      "Don't use blue on headings, icons or dividers."
+    ]
+  }
+}

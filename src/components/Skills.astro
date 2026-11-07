@@ -2,7 +2,7 @@
 import type { Locale } from '../i18n/ui';
 import { useTranslations, pick } from '../i18n/ui';
 import { skillGroups } from '../data/skills';
-import SectionHeading from './SectionHeading.astro';
+import { credentials } from '../data/education';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -10,51 +10,53 @@ const t = useTranslations(locale);
 ---
 
 <section class="section" id="skills">
-  <div class="wrap">
-    <SectionHeading index="05" title={t('section.skills')} />
-
-    <div class="skills">
+  <div class="wrap split">
+    <h2>{t('section.skills')}</h2>
+    <dl class="rows">
       {skillGroups.map((g) => (
-        <div class="skillgroup reveal">
-          <h3 class="skillgroup__title">{pick(g.category, locale)}</h3>
-          <ul class="skillgroup__items">
-            {g.items.map((item) => <li class="tag">{item}</li>)}
-          </ul>
+        <div class="row">
+          <dt>{pick(g.category, locale)}</dt>
+          <dd>{(Array.isArray(g.items) ? g.items : pick(g.items, locale)).join(', ')}</dd>
         </div>
       ))}
-    </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="wrap split">
+    <h2>{t('section.education')}</h2>
+    <dl class="rows">
+      {credentials.map((c) => (
+        <div class="row">
+          <dt>{pick(c.period, locale)}</dt>
+          <dd>
+            <strong>{pick(c.title, locale)}</strong>
+            <span>{c.institution}</span>
+            {c.note && <p>{pick(c.note, locale)}</p>}
+          </dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>
 
 <style>
-  .skills {
+  .rows { display: grid; }
+  .row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: clamp(1rem, 0.6rem + 1.5vw, 1.8rem);
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 0.85rem;
+    border-top: 1px solid var(--rule);
   }
-  .skillgroup {
-    padding: 1.4rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition: border-color 0.3s ease;
+  .row:last-child { border-bottom: 1px solid var(--rule); }
+  .row dt { font-size: var(--fs-sm); color: var(--ink-3); padding-top: 0.1rem; font-variant-numeric: tabular-nums; }
+  .row dd { margin: 0; color: var(--ink-2); max-width: 62ch; }
+  .row strong { display: block; color: var(--ink); font-weight: 500; }
+  .row span { font-size: var(--fs-sm); color: var(--ink-3); }
+  .row p { margin-top: 0.4rem; font-size: var(--fs-sm); }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; gap: 0.2rem; }
   }
-  .skillgroup:hover { border-color: var(--line-strong); }
-  .skillgroup__title {
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--accent-ink);
-    margin-bottom: 1.1rem;
-  }
-  .skillgroup__items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-  .skillgroup:hover .tag { border-color: var(--line-strong); }
 </style>

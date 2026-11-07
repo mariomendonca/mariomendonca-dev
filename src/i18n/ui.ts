@@ -48,6 +48,14 @@ export const ui = {
   'a11y.lang': { en: 'Switch to Portuguese', pt: 'Mudar para inglês' },
   'a11y.toTop': { en: 'Back to top', pt: 'Voltar ao topo' },
   'a11y.menu': { en: 'Open menu', pt: 'Abrir menu' },
+
+  'im.now': { en: 'Software Engineer at OneBeat. Previously Tech Lead at Livelo.', pt: 'Engenheiro de Software na OneBeat. Antes, Tech Lead na Livelo.' },
+  'im.work': { en: 'Selected work', pt: 'Trabalhos selecionados' },
+  'im.work.also': { en: 'Also', pt: 'Também' },
+  'im.visit': { en: 'Visit site', pt: 'Ver site' },
+  'im.offline': { en: 'No longer live', pt: 'Fora do ar' },
+  'im.contact': { en: 'Get in touch', pt: 'Contato' },
+  'im.contact.text': { en: 'Open to full-time engineering and tech lead roles, and to freelance projects.', pt: 'Aberto a vagas full-time de engenharia e tech lead, e a projetos freelance.' },
 } satisfies Record<string, I18nText>;
 
 export type UIKey = keyof typeof ui;
